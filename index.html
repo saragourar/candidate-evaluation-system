@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>تقييم المترشح - أستاذ مساعد ب</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>تقييم المترشح</h1>
+
+        <!-- معلومات المترشح -->
+        <div class="card">
+            <h2>👤 معلومات المترشح</h2>
+
+            <label>الاسم:</label>
+            <input type="text" id="nom" required>
+
+            <label>اللقب:</label>
+            <input type="text" id="prenom" required>
+        </div>
+
+        <!-- الأعمال العلمية -->
+        <div class="card">
+            <h2>🧪 الأعمال العلمية (8 نقاط)</h2>
+
+            <label>نوع المقال:</label>
+            <select id="article">
+                <option value="0">بدون مقال (0)</option>
+                <option value="5">A+ (5)</option>
+                <option value="4">A / PCT (4)</option>
+                <option value="3">B / INAPI (3)</option>
+            </select>
+
+            <label>
+                <input type="checkbox" id="extraArticle">
+                مقال إضافي (+1)
+            </label>
+
+            <label>
+                <input type="checkbox" id="book">
+                كتاب ISBN (+1.5)
+            </label>
+        </div>
+
+        <!-- المداخلات العلمية -->
+        <div class="card">
+            <h2>🎤 المداخلات العلمية (3 نقاط)</h2>
+
+            <label>عدد المداخلات الدولية (0.5 نقطة لكل واحدة – max 2):</label>
+            <select id="intl">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+
+            <label>عدد المداخلات الوطنية (0.25 نقطة لكل واحدة – max 1):</label>
+            <select id="nat">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+
+        <!-- الخبرة المهنية -->
+        <div class="card">
+            <h2>🧑‍🏫 الخبرة المهنية (3 نقاط)</h2>
+
+            <label>التدريس في نفس القطاع:</label>
+            <select id="same">
+                <option value="0">0 سنة (0)</option>
+                <option value="1">1 سنة (1)</option>
+                <option value="2">2 سنوات (2)</option>
+                <option value="3">3 سنوات أو أكثر (3)</option>
+            </select>
+
+            <label>التدريس خارج القطاع:</label>
+            <select id="other">
+                <option value="0">0 سنة (0)</option>
+                <option value="0.5">1 سنة (0.5)</option>
+                <option value="1">2 سنوات (1)</option>
+                <option value="1.5">3 سنوات أو أكثر (1.5)</option>
+            </select>
+        </div>
+        <div class="card">
+            <h2>🎓 تطابق الشهادة مع التخصص (2 نقاط)</h2>
+            <select id="diploma">
+                <option value="0">غير مطابقة (0)</option>
+                <option value="1">قريبة من التخصص (1)</option>
+                <option value="2">مطابقة تمامًا (2)</option>
+            </select>
+        </div>
+        <!-- المقابلة الشفوية -->
+        <div class="card">
+            <h2>🗣 المقابلة الشفوية (4 نقاط)</h2>
+
+            <label>القدرة على التحليل والتلخيص:</label>
+            <select id="analysis">
+                <option value="0">0</option>
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+            </select>
+
+            <label>وضوح الخطاب:</label>
+            <select id="clarity">
+                <option value="0">0</option>
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+            </select>
+
+            <label>القدرة على التواصل:</label>
+            <select id="communication">
+                <option value="0">0</option>
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+            </select>
+
+            <label>المستوى العلمي:</label>
+            <select id="scientific">
+                <option value="0">0</option>
+                <option value="0.5">0.5</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+
+        <button onclick="calculate()">احسب و احفظ النتيجة</button>
+
+        <div class="result">
+            النتيجة النهائية:
+            <span id="result">0</span> / 20
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
