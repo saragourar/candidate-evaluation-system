@@ -1,145 +1,160 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <title>تقييم المترشح - أستاذ مساعد ب</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+    <title>شبكة التقييم</title>
 
+    <style>
+        body {
+            font-family: Arial;
+            direction: rtl;
+            background-color: #f5f7fa;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #0d6efd;
+        }
+
+        .section {
+            background: white;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .row {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 200px;
+            padding: 6px;
+        }
+
+        .points {
+            color: red;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .result {
+            font-size: 20px;
+            color: green;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
 <body>
 
-    <div class="container">
-        <h1>تقييم المترشح</h1>
+<form method="POST">
 
-        <!-- معلومات المترشح -->
-        <div class="card">
-            <h2>👤 معلومات المترشح</h2>
+    <div class="section">
+        <h2>📚 الأعمال العلمية</h2>
 
-            <label>الاسم:</label>
-            <input type="text" id="nom" required>
-
-            <label>اللقب:</label>
-            <input type="text" id="prenom" required>
+        <div class="row">
+            <label>مقال صنف أ+ <span class="points">(5 نقاط)</span></label>
+            <input type="number" name="a1" step="0.25" min="0" max="5">
         </div>
 
-        <!-- الأعمال العلمية -->
-        <div class="card">
-            <h2>🧪 الأعمال العلمية (8 نقاط)</h2>
-
-            <label>نوع المقال:</label>
-            <select id="article">
-                <option value="0">بدون مقال (0)</option>
-                <option value="5">A+ (5)</option>
-                <option value="4">A / PCT (4)</option>
-                <option value="3">B / INAPI (3)</option>
-            </select>
-
-            <label>
-                <input type="checkbox" id="extraArticle">
-                مقال إضافي (+1)
-            </label>
-
-            <label>
-                <input type="checkbox" id="book">
-                كتاب ISBN (+1.5)
-            </label>
+        <div class="row">
+            <label>مقال صنف أ <span class="points">(4 نقاط)</span></label>
+            <input type="number" name="a2" step="0.25" min="0" max="4">
         </div>
 
-        <!-- المداخلات العلمية -->
-        <div class="card">
-            <h2>🎤 المداخلات العلمية (3 نقاط)</h2>
-
-            <label>عدد المداخلات الدولية (0.5 نقطة لكل واحدة – max 2):</label>
-            <select id="intl">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
-
-            <label>عدد المداخلات الوطنية (0.25 نقطة لكل واحدة – max 1):</label>
-            <select id="nat">
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-            </select>
+        <div class="row">
+            <label>مقال صنف ب <span class="points">(3 نقاط)</span></label>
+            <input type="number" name="a3" step="0.25" min="0" max="3">
         </div>
 
-        <!-- الخبرة المهنية -->
-        <div class="card">
-            <h2>🧑‍🏫 الخبرة المهنية (3 نقاط)</h2>
-
-            <label>التدريس في نفس القطاع:</label>
-            <select id="same">
-                <option value="0">0 سنة (0)</option>
-                <option value="1">1 سنة (1)</option>
-                <option value="2">2 سنوات (2)</option>
-                <option value="3">3 سنوات أو أكثر (3)</option>
-            </select>
-
-            <label>التدريس خارج القطاع:</label>
-            <select id="other">
-                <option value="0">0 سنة (0)</option>
-                <option value="0.5">1 سنة (0.5)</option>
-                <option value="1">2 سنوات (1)</option>
-                <option value="1.5">3 سنوات أو أكثر (1.5)</option>
-            </select>
-        </div>
-        <div class="card">
-            <h2>🎓 تطابق الشهادة مع التخصص (2 نقاط)</h2>
-            <select id="diploma">
-                <option value="0">غير مطابقة (0)</option>
-                <option value="1">قريبة من التخصص (1)</option>
-                <option value="2">مطابقة تمامًا (2)</option>
-            </select>
-        </div>
-        <!-- المقابلة الشفوية -->
-        <div class="card">
-            <h2>🗣 المقابلة الشفوية (4 نقاط)</h2>
-
-            <label>القدرة على التحليل والتلخيص:</label>
-            <select id="analysis">
-                <option value="0">0</option>
-                <option value="0.5">0.5</option>
-                <option value="1">1</option>
-            </select>
-
-            <label>وضوح الخطاب:</label>
-            <select id="clarity">
-                <option value="0">0</option>
-                <option value="0.5">0.5</option>
-                <option value="1">1</option>
-            </select>
-
-            <label>القدرة على التواصل:</label>
-            <select id="communication">
-                <option value="0">0</option>
-                <option value="0.5">0.5</option>
-                <option value="1">1</option>
-            </select>
-
-            <label>المستوى العلمي:</label>
-            <select id="scientific">
-                <option value="0">0</option>
-                <option value="0.5">0.5</option>
-                <option value="1">1</option>
-            </select>
+        <div class="row">
+            <label>مقال إضافي <span class="points">(1 نقطة)</span></label>
+            <input type="number" name="a4" step="0.25" min="0" max="1">
         </div>
 
-        <button onclick="calculate()">احسب و احفظ النتيجة</button>
+        <div class="row">
+            <label>كتاب علمي <span class="points">(1.5 نقطة)</span></label>
+            <input type="number" name="book" step="0.25" min="0" max="1.5">
+        </div>
 
-        <div class="result">
-            النتيجة النهائية:
-            <span id="result">0</span> / 20
+        <div class="row">
+            <label>مداخلة دولية <span class="points">(2 نقاط)</span></label>
+            <input type="number" name="international" step="0.25" min="0" max="2">
+        </div>
+
+        <div class="row">
+            <label>مداخلة وطنية <span class="points">(1 نقطة)</span></label>
+            <input type="number" name="national" step="0.25" min="0" max="1">
         </div>
     </div>
+    <div class="section">
+    <h2>💼 الخبرة المهنية</h2>
 
-    <script src="script.js"></script>
+    <div class="row">
+        <label>التدريس في نفس القطاع <span class="points">(3 نقاط)</span></label>
+        <input type="number" name="same_field" step="0.25" min="0" max="3">
+    </div>
+
+    <div class="row">
+        <label>التدريس خارج القطاع <span class="points">(1.5 نقطة)</span></label>
+        <input type="number" name="outside_field" step="0.25" min="0" max="1.5">
+    </div>
+
+    <div class="row">
+        <label>مجال آخر <span class="points">(1.5 نقطة)</span></label>
+        <input type="number" name="other_field" step="0.25" min="0" max="1.5">
+    </div>
+</div>
+<div class="section">
+    <h2>🎤 المقابلة</h2>
+
+    <div class="row">
+        <label>القدرة على التحليل والتلخيص <span class="points">(1 نقطة)</span></label>
+        <input type="number" name="analysis" step="0.25" min="0" max="1">
+    </div>
+
+    <div class="row">
+        <label>وضوح وسلاسة الخطاب <span class="points">(1 نقطة)</span></label>
+        <input type="number" name="clarity" step="0.25" min="0" max="1">
+    </div>
+
+    <div class="row">
+        <label>القدرة على التواصل <span class="points">(1 نقطة)</span></label>
+        <input type="number" name="communication" step="0.25" min="0" max="1">
+    </div>
+
+    <div class="row">
+        <label>المهارات العلمية الخاصة <span class="points">(1 نقطة)</span></label>
+        <input type="number" name="skills" step="0.25" min="0" max="1">
+    </div>
+</div>
+
+
+    <button type="submit">حساب المجموع</button>
+
+    {% if total is not none %}
+        <div class="result">
+            ✅ المجموع النهائي: {{ total }}
+        </div>
+    {% endif %}
+
+</form>
 
 </body>
-
 </html>
