@@ -11,6 +11,9 @@ The system calculates candidate scores based on official academic evaluation cri
 - PHP
 - MySQL
 - XAMPP Server
+- Python
+-Flask
+-HTML / CSS
 
 ## System Features
 - Candidate information input
@@ -28,7 +31,7 @@ The system calculates candidate scores based on official academic evaluation cri
 - save.php → Data storage in database
 - evaluation_db.sql → Database structure
 
-## How to Run the Project
+## How to Run the Project 
 
 1. Install XAMPP
 2. Copy project folder into:
@@ -39,7 +42,21 @@ The system calculates candidate scores based on official academic evaluation cri
 6. Open browser
 7. Run:
    http://localhost/evaluation-assistant-b
+▶️ How to Run the Project app python web evaluationGridWebApp.py
+Install Python
+Install Flask:
+pip install flask
+Run the application:
+python EvaluationGridWebApp.py
+Open your browser and go to:
+http://127.0.0.1:5000/
 
+📂 Project Structure app python web evaluationGridWebApp.py
+EvaluationGridProject/
+│
+├── EvaluationGridWebApp.py
+├── templates/
+│   └── index.html
 ## Evaluation Criteria
 
 Scientific works: 8 points  
